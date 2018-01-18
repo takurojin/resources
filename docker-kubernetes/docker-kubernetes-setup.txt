@@ -1,0 +1,16 @@
+(Prerequisite)
+Oracle Linux : 7
+
+
+(disable swap)
+$> swapoff -a
+# for checking cat /proc/swaps
+
+(master node port open)
+$> iptables -A INPUT -p tcp —match multiport —dports 2379,2380,6443,10250,10251,10252,10255 -j ACCEPT
+$> /etc/init.d/iptables save
+$> /etc/init.d/iptables restart
+# for checking iptables -L -v
+
+
+
